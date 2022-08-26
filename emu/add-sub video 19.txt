@@ -1,0 +1,42 @@
+
+.model small
+
+.data
+
+var1 db 15
+var2 db 2 
+
+
+
+.code
+
+main proc
+    
+   mov ax,@data
+   mov ds,ax
+   
+   
+   ;des = des + src
+   ;des/src  can be 8/16bit register
+   ;des/src can be 8/16/32...bit variable
+   ;des can't be constant
+   ;src can be constant
+   ;des and src must be of the same size
+   ;des and src must'nt be variables at the same time 
+   add des,src
+   
+   
+   ;des = des - src
+   ;des/src  can be 8/16bit register
+   ;des/src can be 8/16/32...bit variable
+   ;des can't be constant
+   ;src can be constant
+   ;des and src must be of the same size
+   ;des and src must'nt be variables at the same time
+   sub des,src
+   
+
+    
+    main endp
+
+end

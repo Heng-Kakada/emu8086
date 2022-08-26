@@ -1,0 +1,20 @@
+
+.model small
+
+.data
+
+PI EQU 3.14 ;initial value is an obligation
+
+.code
+
+main proc
+    
+    
+    
+    
+    
+    
+    
+    main endp
+
+end

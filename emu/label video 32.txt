@@ -1,0 +1,34 @@
+
+.model small
+
+.data
+
+
+.code
+
+main proc
+    
+           mov al,5
+           mov bl,5
+           sub al,bl
+           
+           jz label
+           
+           ;must exist as a label of an instruction in the
+           ;program          
+           
+           mov cl,12 
+           add cl,bl
+           
+     label:inc al
+     
+      ;1-label has the same naming rules of
+      ;variables
+           
+      ;2-must be unique (shouldn't be more 
+      ;then once) 
+        
+    
+    main endp
+
+end

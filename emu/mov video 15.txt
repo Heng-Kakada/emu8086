@@ -1,0 +1,23 @@
+
+.model small
+
+.data
+
+.code
+
+main proc
+    
+    
+   ;des=src
+   ;des/src can be a 8/16 bit register
+   ;des/src can be a 8/16/32..bit variable
+   ;des can't be a constant
+   ;src can be a constant
+   ;des and src can't be variables at the same time 
+   mov des,src 
+    
+    
+    
+    main endp
+
+end

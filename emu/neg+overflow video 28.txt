@@ -1,0 +1,26 @@
+
+.model small
+
+.data
+
+.code
+
+main proc
+    
+    ;comment the section wich you will not test
+    
+    
+    ;section1
+    mov al,-128;signed 8bit
+    neg al
+    
+    ;section2
+    mov ax,32768;signed 16bit
+    neg ax
+    
+    
+    
+    
+    main endp
+
+end

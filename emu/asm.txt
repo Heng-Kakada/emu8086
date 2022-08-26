@@ -1,0 +1,622 @@
+Assembly Language
+
+-What is a program ,programming language ?
+ program: is a set of algorithms which solves certain problem
+ programming language: is the language which translates the algorithms into the computer's language(machine language);
+
+
+-what is assembly language?
+
+the assembly language is a low level programming language
+
+	+high level langauge
+	Requires 
+	1 syntax
+	2functions and libraries
+	+low level langauge
+	Requires
+	1 syntax
+	2 hardware architecture
+	3 basic knowledge of data representation
+
+why Intel 8086
+
+-simple architecture 
+- compatibility with new versions
+
+
+video 4
+
+basic digital computer architecture.png
+
+
+video 5
+
+8086 architecture.png
+
+
+
+ALU = arithmetic and logic unit it actually taking charge of the mathematical operations for example that add sub mul 
+	and so on and for logical operations we take an example of the or and xor and so on;
+
+
+Data registers : AX BX CX DX;
+Pointer Register: SP BP;
+index register: SI DI;
+
+segment register: CS DS SS ES;
+instruction pointer(IP) this register actually indicate to at the address in the certain memory of the next instruction in the program;
+FLAGS register;
+
+video 6
+
+row is byte;
+column is bit;
+
+8bit = 1byte;
+
+every rows has an address;
+
+
+video 7
+
+downlaod emu8086;
+
+video 8
+
+first write in emu8086
+
+Name : test
+
+.model small
+
+.data
+
+.code
+
+main proc
+
+
+
+main endp
+
+end
+
+video 9 
+
+ variable is defined in .data in emu8086; 
+
+ syntax declared variable
+	
+	variableName sizeOfvariable value
+
+-db = 8bit;
+
+if you want to use NuLL use this sign "?";
+
+video 10
+
+rule of naming variable
+
+variable can not start with number
+can defined oly english language and the numbers from 0 - 9 underscore and spacial character
+variable name can not contain more than 31 characters
+variable can be uppercase or lowercase
+
+
+video 11 
+
+size of directive
+
+db = 1 byte
+dw = 2 byte
+dd = 4 byte
+dq = 8 byte
+dt = 10 byte
+
+video 12 
+
+constant
+
+	syntax declear variable 
+
+		name EQU value
+
+defining name of constant is the same as defining a variable;
+
+
+
+video 13
+
+types of th e numerical values
+
+db : -128 <= db <= 255
+
+dw : -32768 <= dw <= 65536
+
+
+1 digit of hex = 8 bit of binary
+
+for decimal number if use between -128 and 255 = 8 bit
+		   if use between -32768 and 65536 = 16bit
+
+
+exmaple: ffH = 111111111B
+	 ffffH = 1111111111111111B
+
+
+
+in emu8086 thier are 3 base use :
+
+	binary 
+
+	decimal
+
+	hexadecimal
+
+
+video 14
+
+all 14 Register has 16 bit;
+
+Data Registers: 
+
+for ax has ah = 8bit and al = 8bit
+for bx has bh = 8bit and bl = 8bit
+for cx has ch = 8bit and cl = 8bit
+for dx has dh = 8bit and dl = 8bit
+
+
+video 15
+
+mov instruction
+	
+	syntax:	
+
+		mov des, src
+
+
+destination should not be a constant ; it should be either a variable or a regiter;
+
+source should be variable or registers or constant
+
+
+mov var1, var2 is wrong;
+
+mov reg, 15 is correct;
+
+mov reg, var is correct;
+
+mov reg , reg is correct;
+
+
+the size of des is the same as size of src
+
+video 16
+
+-Define constant C with value 15 
+-Define tow variables of type Byte var1 and var2
+-Var1 = 12
+-Var2 = C
+-Than var1=C and var2=12 (permutation)
+
+
+video 17
+
+CX=7
+AX=3
+BX=5
+
+change AX = 7 , BX = 3, CX = 5
+
+video 18
+	
+	swap by using xchg
+	
+   xchg des,src
+
+   des=src and src=des
+   des/src can be a 8/16 bit register
+   des/src can be a 8/16/32..bit variable
+   des/src can't be a constant
+   des and src can't be variables at the same time 
+
+video 19
+	
+	syntax:   add des,src 
+
+	des = des + src
+   -des/src  can be 8/16bit register
+   -des/src can be 8/16/32...bit variable
+   -des can't be constant
+   -src can be constant
+   -des and src must be of the same size
+   -des and src must'nt be variables at the same time 
+
+   
+
+	syntax:   sub des,src
+   
+   	des = des - src
+   -des/src  can be 8/16bit register
+   -des/src can be 8/16/32...bit variable
+   -des can't be constant
+   -src can be constant
+   -des and src must be of the same size
+   -des and src must'nt be variables at the same time
+
+video 20
+
+Define num1 as Byte with a value 6
+Define num2 as Byte with a value 3
+Define sum as Byte with a value num1 + num2
+Define def as Byte with a value num1 – num2
+
+video 21
+
+syntax   
+   inc des
+   des = des + 1
+   des can be 8/16bit register
+   des can be 8/16/32...bit variable
+   des can't be constant 
+
+syntax
+   dec des   
+   
+   des = des - 1
+   des can be 8/16bit register
+   des can be 8/16/32...bit variable
+   des can't be constant 
+
+syntax
+   neg des 
+   
+   des = -(des)
+   des can be 8/16bit register
+   des can be 8/16/32...bit variable
+   des can't be constant 
+
+video 22
+
+-Define num1 as Byte with a value 6
+-Define num2 as Byte with a value 3
+-Num1 = num1 + 2 (using inc)
+-Num2 = 1 (using dec)  
+-Define def  as Byte with a value           num1 - num2 (using neg)
+
+video 23
+
+
+Mov al,5
+
+0	0	0	0	0	1	0	1
+ AL
+
+101
+(101)2 = (5)10
+
+1	0	1	0	0	1	0	1
+
+	AL
+ 
+(0101)2 = 1*20 + 0*21 + 1*22 + 0*23 
+              = 1 + 0 + 4 +0 = 5h 
+(1010)2 = 0*20 + 1*21 + 0*22 + 1*23 =
+              = 0 + 2 + 0 + 8 = 10 = 0ah
+(10100101)2 = 0a5h
+
+10 => a ,11 => b ,12 => c ,13 => d
+14 => e ,15 => f
+
+or 
+
+can use 8-4-2-1 form (good and fast)
+
+video 24
+
+
+Unsigned                     		  0 <= 8 bit <= 255
+					  0 <= 16bit <= 65535
+					  0 <= N bit <= 2N - 1	
+
+signed                             	 -128 <= 8 bit <= 127
+					 -32768 <= 16bit <= 32767
+					 -(2N-1) <= N bit <= 2N-1 - 1		
+video 25 
+
+
+we use unsigned when we descript something not possible negative e.g. age person height
+
+for signed when we descript about something possible possitive and negative e.g. temperature
+
+
+assignment :
+
+write a simple program can do:
+
+1.A = B - A
+
+2.A = -(A+1)
+
+3.C = A + B
+
+4.B = 3*B +7
+
+5.A = B - A -1
+
+
+video 26
+
+The Flags register
+
+6 are state flags:
+
+	overflow
+	sign
+	zero
+	auxiliary flag
+	parity flag
+	carry flag
+
+3 are control flag
+
+	direction
+	interrupt enable
+	trap
+
+flag is indicates that the result is wrong
+
+
+
+video 27
+
+Overflow Flag (O) This flag will be set (1) if the result of 
+	a signed operation is too large to fit in the number of bits 
+	available to represent it, otherwise reset (0). After any operation, 
+	if D[6] generates any carry and passes to D[7] OR if D[6] does not 
+	generates carry but D[7] generates, overflow flag becomes set, 
+	i.e., 1. If D[6] and D[7] both generate carry or both do not generate 
+	any carry, then overflow flag becomes reset, i.e., 0.
+
+
+
+video 28
+
+Mov , xchg    =>  No flag
+Add , Sub   => All flags
+Inc , Dec    => All flags Except CF
+Neg  -(2)^N-1  => overflow
+
+    
+    
+
+video 29
+
+   
+	
+    mov al,2
+    sub al,2
+    
+    ;ZF=1 because the result is 0 
+    
+    mov al,-12
+    sub al,2
+    
+    ;SF=1 because the result is negative (-10)
+    
+    mov al,255
+    inc al
+    
+    ;CF will not indicate that there is 
+    ;an overflow in an unsigned number
+    ;inc instruction has no effect in CF 
+    
+    mov al,-128
+    dec al
+    
+    ;OF=1 indicates that there is 
+    ;an overflow in a signed number
+    ;dec instruction has also no effect in CF
+    
+    ;mov,xchg => no FLAG is effected
+    ;inc,dec => onely CF is not effected
+    ;add,sub,neg => all FLAGs are effected
+
+
+
+video 30
+
+Define num1 and num2 as Byte
+Change the values of the variables and compare it
+Using flags register
+
+Note
+Num1 = num2 => num1 – num2 = 0 zf = 0
+Num1 > num2 => num1 – num2 > 0 sf = 0
+Num1 < num2 => num1 – num2 < 0 sf = 1
+
+
+video 31 
+
+work only in low register e.g. al bl cl dl
+
+Parity Flag (P) – If after any arithmetic or logical operation 
+		  the result has even parity, an even number of 1 bit, 
+	  	  the parity register becomes set i.e. 1, 
+		  otherwise it becomes reset i.e. 0. 1-accumulator 
+		  has an even number of 1 bits 0-accumulator has odd parity 
+		  Example: MVI A 05 (load 05H in register A) This instruction will 
+		  set the parity flag to 1 as the BCD code of 05H is 00000101, 
+		  which contains an even number of ones i.e. 2.
+
+
+video 32 
+
+ there conditional and unconditional branching
+
+ 1-label has the same naming rules of variables
+           
+ 2-must be unique (shouldn't be more then once) 
+
+video 33 
+
+ braching part 1
+
+	    ;j => jump
+            ;jc <> jnc // carry
+            ;jo <> jno // overflow
+            ;js <> jns // signed
+            ;jz <> jnz // zero
+            ;jp <> jnp // parity
+
+
+we can test Only state flags CF,OF,ZF,SF,PF,AF
+
+
+video 34
+
+
+;jmp jump without any condition
+
+video 35
+
+Define num1 and num2 as Byte
+Assuming num1 and num2 are unsigned numbers 
+Do different operations and:
+     
+      DL = 1 if there is an overflow
+      DL = 0 if not
+
+
+video 36 
+
+
+
+Define num1 and num2 as Byte
+Assuming num1 and num2 are signed numbers 
+Do different operations and:
+     
+      DL = 1 if there is an overflow
+      DL = 0 if not
+
+
+
+video 37
+
+Define num1 and num2 as byte
+Assuming num1 and num2 are signed numbers
+Do:
+	Compare num1 and num2
+	DL = 0 if num1 = num2 
+	DL = 1 if num1 > num2
+	DL = 2 if num1 < num2
+
+ video 38
+
+	unsigned jmp :
+
+ja = jump above = jnbe
+jae = jump above or eq = jnb
+jb = jump below = jnae
+jbe = jump below or = eq = jna
+je = jump eq = jne
+
+
+
+A > B     x  A <= B  <=>  A > B = not( A <= B )
+					 not( A > B ) = A <= B
+A >= B     x  A < B  <=>   A >= B = not( A < B ) 
+					 not( A >= B ) = A < B
+A = B     x  A <> B   <=>   A = B = not( A <> B )
+					  not( A = B ) = A <> B
+
+
+cmp is work the same as sub instruction
+
+
+video 39
+
+
+Compare AL with AH if:
+		AL > AH => var1 = 1
+		Else var1 = 0
+Compare BL with BH if:
+		BL < BH => var1 = 1
+		Else var1 = 0
+Compare CL with CH if:
+		CL >= CH => var1 = 1
+		Else var1 = 0
+Compare AL with AH if:
+		DL <= DH => var1 = 1
+		Else var1 = 0
+Compare AL with AH if:
+		AL > AH => var1 = 1
+		Else if AL < AH  var1 = 2
+			   Else var1=3
+
+video 40
+
+
+	Signed cmp
+
+    -you can use this branching instruction with
+    -the unsigned numbers without any problem
+    
+    mov al,5 ;signed
+    mov bl,-1
+    
+    cmp al,bl
+    
+    -cmp is like sub it does des(al) - src(bl)
+    -and it  doesn't change the value of des(al)
+    
+    jg greater
+    
+    -al>bl
+    -jg = jnle / ja(unsigned version)
+    
+    jge greater or eq
+    
+    -al>=bl
+    -jge = jnl / jae(unsigned version)
+    
+    jl lower
+    
+    -al<bl
+    -jl = jnge / jb(unsigned version)
+    
+    jle lower or eq
+     
+    -al<=bl
+    -jle = jng / jbe(unsigned version)
+    
+    je eq
+    
+    -the same as in the unsigned version
+
+
+video 41 
+
+example use cmp in signed
+
+video 42
+
+
+         jp = jpe
+         jp<>jnp=jpo<>jpe
+         jp=jpe
+         jnp=jpo
+
+
+
+
+
+
+
+
+
+
+
+
+

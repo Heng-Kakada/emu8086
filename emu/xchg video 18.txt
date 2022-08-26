@@ -1,0 +1,22 @@
+
+.model small
+
+.data
+
+.code
+
+main proc
+    
+    
+   ;des=src and src=des
+   ;des/src can be a 8/16 bit register
+   ;des/src can be a 8/16/32..bit variable
+   ;des/src can't be a constant
+   ;des and src can't be variables at the same time 
+   xchg des,src 
+    
+    
+    
+    main endp
+
+end

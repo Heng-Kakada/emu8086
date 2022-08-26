@@ -1,0 +1,56 @@
+
+.model
+
+.data
+
+
+
+.code
+
+main proc
+    
+       ;don't use this branching instructions in
+       ;a signed numbers because it will results  
+       ;unexpected faults
+       
+       mov al,5 ;unsigned
+       mov bl,1
+       
+       sub al,bl
+       
+       ja above
+       
+       ;al>bl
+       ;ja = jnbe
+       ;ja = ZF=0 and SF=0
+       
+       jae aboveoreq
+       
+       ;al>=bl
+       ;jae = jnb
+       ;jae = SF=0 (ZF=0 or ZF=1)
+       
+       
+       jb below
+       
+       ;al<bl
+       ;jb = jnae
+       ;jb = ZF=0 and SF=1
+       
+       jbe beloworeq
+       
+       ;al<=bl
+       ;jbe = jna
+       ;jae = SF=1 (ZF=0 or ZF=1)
+       
+       je eq
+       
+       ;al=bl
+       ;je = jz
+       :jne = jnz
+       ;je<>jne=jnz<>jz
+       ;je ZF=1
+    
+    main endp
+
+end

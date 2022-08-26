@@ -1,0 +1,50 @@
+
+.model small
+
+.data
+
+
+
+.code
+
+main proc
+    
+    ;you can use this branching instruction with
+    ;the unsigned numbers without any problem
+    
+    mov al,5 ;signed
+    mov bl,-1
+    
+    cmp al,bl
+    
+    ;cmp is like sub it does des(al) - src(bl)
+    ;and it  doesn't change the value of des(al)
+    
+    jg greater
+    
+    ;al>bl
+    ;jg = jnle / ja(unsigned version)
+    
+    jge greateroreq
+    
+    ;al>=bl
+    ;jge = jnl / jae(unsigned version)
+    
+    jl lower
+    
+    ;al<bl
+    ;jl = jnge / jb(unsigned version)
+    
+    jle loweroreq
+    
+    ;al<=bl
+    ;jle = jng / jbe(unsigned version)
+    
+    je eq
+    
+    ;the same as in the unsigned version
+
+    
+    main endp
+
+end

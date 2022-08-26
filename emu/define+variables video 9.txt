@@ -1,0 +1,23 @@
+
+;you can let the program without name
+
+.model small
+
+.data
+
+ variableName db 12
+
+.code
+
+main proc
+    
+    
+    
+    
+    
+    
+    
+    
+    main endp
+
+end

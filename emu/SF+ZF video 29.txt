@@ -1,0 +1,43 @@
+
+.model small
+
+.data
+
+
+
+.code
+
+main proc
+    
+     
+    mov al,2
+    sub al,2
+    
+    ;ZF=1 because the result is 0 
+    
+    mov al,-12
+    sub al,2
+    
+    ;SF=1 because the result is negative (-10)
+    
+    mov al,255
+    inc al
+    
+    ;CF will not indicate that there is 
+    ;an overflow in an unsigned number
+    ;inc instruction has no effect in CF 
+    
+    mov al,-128
+    dec al
+    
+    ;OF=1 indicates that there is 
+    ;an overflow in a signed number
+    ;dec instruction has also no effect in CF
+    
+    ;mov,xchg => no FLAG is effected
+    ;inc,dec => onely CF is not effected
+    ;add,sub,neg => all FLAGs are effected
+                  
+    main endp
+
+end

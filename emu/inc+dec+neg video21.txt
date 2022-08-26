@@ -1,0 +1,43 @@
+
+.model small
+
+.data
+
+var db 15
+
+
+.code
+
+main proc
+    
+   mov ax,@data
+   mov ds,ax
+   
+   
+   ;des = des + 1
+   ;des can be 8/16bit register
+   ;des can be 8/16/32...bit variable
+   ;des can't be constant 
+   inc des
+   
+   
+   ;des = des - 1
+   ;des can be 8/16bit register
+   ;des can be 8/16/32...bit variable
+   ;des can't be constant 
+   dec des
+   
+   ;des = -(des)
+   ;des can be 8/16bit register
+   ;des can be 8/16/32...bit variable
+   ;des can't be constant 
+   neg des 
+    
+    
+    
+    
+    
+    
+    main endp
+
+end

@@ -1,0 +1,41 @@
+
+.model small
+
+.data
+
+.code
+
+main proc
+    
+    ;comment all sections except the one wich
+    ;you want to try
+    
+    ;section1
+    mov ax,4
+    add ax,1
+    
+    ;PF=1 => ax=5 => al=5 => al=101b 
+    
+    ;section2
+    mov bl,4
+    inc bl
+    
+    ;PF=1 => ax=5 => al=5 => al=101b
+    ;NO problem with PF in inc or dec instructions
+    ;onely CF has this problem
+    
+    ;section3
+    mov cl,1
+    mov ch,4
+    add ch,1
+    
+    ;PF=PF (it will not change) because: 
+    ;1 mov does not effect PF
+    ;2 add was effectd to ch not to cl/cx
+    ;then the status of PF will not change
+    
+    
+    
+    main endp
+
+end
